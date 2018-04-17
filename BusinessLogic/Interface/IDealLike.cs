@@ -10,6 +10,7 @@ namespace BusinessLogic.Interface
     public interface IDealLike
     {
         string InsertDealLike(DealLike deal);
-
+        
+        DealLike CheckLike(Guid DealID, Guid UserID);
     }
 }

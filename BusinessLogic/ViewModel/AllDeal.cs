@@ -25,7 +25,15 @@ namespace BusinessLogic.ViewModel
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
         public Boolean Status { get; set; }
+        public Nullable<Int32> DealSold { get; set; }
         public DateTime CreatedDate { get; set; }
+        public Nullable<decimal> AverageRating { get; set; }
+        public Nullable<int> RateCount { get; set; }
 
+    }
+    public class DealLikeIDs
+    {
+        public Guid DealID { get; set; }
+        public Guid UserID { get; set; }
     }
 }

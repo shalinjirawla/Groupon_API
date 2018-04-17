@@ -20,6 +20,7 @@ namespace BusinessLogic.Models
         public Guid UserID { get; set; }
         public User User { get; set; }
         public DateTime LikedDate { get; set; }
+        public Boolean LikeStatus { get; set; }
 
     }
 }

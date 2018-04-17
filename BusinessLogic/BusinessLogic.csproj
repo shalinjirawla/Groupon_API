@@ -65,6 +65,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IOffers.cs" />
+    <Compile Include="Interface\IPaymentDetail.cs" />
+    <Compile Include="Migrations\201804060623521_Four.cs" />
+    <Compile Include="Migrations\201804060623521_Four.Designer.cs">
+      <DependentUpon>201804060623521_Four.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804060708302_Five.cs" />
+    <Compile Include="Migrations\201804060708302_Five.Designer.cs">
+      <DependentUpon>201804060708302_Five.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804060712442_lastmg.cs" />
+    <Compile Include="Migrations\201804060712442_lastmg.Designer.cs">
+      <DependentUpon>201804060712442_lastmg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804110508185_Six.cs" />
+    <Compile Include="Migrations\201804110508185_Six.Designer.cs">
+      <DependentUpon>201804110508185_Six.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804111049388_Seven.cs" />
+    <Compile Include="Migrations\201804111049388_Seven.Designer.cs">
+      <DependentUpon>201804111049388_Seven.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804121343217_Eight.cs" />
+    <Compile Include="Migrations\201804121343217_Eight.Designer.cs">
+      <DependentUpon>201804121343217_Eight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804161206422_Nine.cs" />
+    <Compile Include="Migrations\201804161206422_Nine.Designer.cs">
+      <DependentUpon>201804161206422_Nine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Offers.cs" />
+    <Compile Include="Repository\OffersRepository.cs" />
+    <Compile Include="Repository\PaymentDetailRepository.cs" />
     <Compile Include="ViewModel\AllDeal.cs" />
     <Compile Include="Domain\AwfirContext.cs" />
     <Compile Include="Interface\ICategory.cs" />
@@ -112,6 +145,9 @@
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\RegistrationRepository.cs" />
     <Compile Include="ViewModel\DealReviewModel.cs" />
+    <Compile Include="ViewModel\OfferIDDealID.cs" />
+    <Compile Include="ViewModel\OfferView.cs" />
+    <Compile Include="ViewModel\PaymentDetailCount.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803270620054_First.resx">
@@ -122,6 +158,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803291150072_Third.resx">
       <DependentUpon>201803291150072_Third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804060623521_Four.resx">
+      <DependentUpon>201804060623521_Four.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804060708302_Five.resx">
+      <DependentUpon>201804060708302_Five.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804060712442_lastmg.resx">
+      <DependentUpon>201804060712442_lastmg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804110508185_Six.resx">
+      <DependentUpon>201804110508185_Six.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111049388_Seven.resx">
+      <DependentUpon>201804111049388_Seven.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804121343217_Eight.resx">
+      <DependentUpon>201804121343217_Eight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804161206422_Nine.resx">
+      <DependentUpon>201804161206422_Nine.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -19,15 +19,52 @@ namespace Awfir.Controllers
         {
             _dealRecom = new DealRecomRepository(new AwfirContext());
         }
+
+        [HttpGet]
+        public IHttpActionResult GetDetailByID(Guid id)
+        {
+            try
+            {
+                if(id != null)
+                {
+                    var data = _dealRecom.GetByID(id);
+                    if (data != null)
+                    {
+                        return Ok(data);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return NotFound();
+                }
+                
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         [HttpPost]
         public IHttpActionResult InsertUpdateDealRecom(DealRecom dealRecom)
         {
             try
             {
-                var data = _dealRecom.InsertUpdateDealRecom(dealRecom);
-                if(data != null)
+                if(dealRecom != null)
                 {
-                    return Ok(data);
+                    var data = _dealRecom.InsertUpdateDealRecom(dealRecom);
+                    if (data != null)
+                    {
+                        return Ok(data);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 else
                 {
@@ -39,5 +76,6 @@ namespace Awfir.Controllers
                 throw e;
             }
         }
+        
     }
 }

@@ -22,10 +22,11 @@ namespace BusinessLogic.Models
         public int PaymentType { get; set; }
         public string CardNumber { get; set; }
         public string CardName { get; set; }
-        public DateTime ExpiryDate { get; set; }
-        public int CVV { get; set; }
+        public Nullable<DateTime> ExpiryDate { get; set; }
+        public Nullable<int> CVV { get; set; }
         public decimal Amount { get; set; }
         public DateTime PayDate { get; set; }
         public int Status { get; set; }
+        public Nullable<Guid> OfferID { get; set; }
     }
 }

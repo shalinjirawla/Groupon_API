@@ -30,10 +30,24 @@ namespace Awfir.Controllers
         {
             try
             {
-                
-
-                _registration.CreateUser(model);
-                return Ok(model);
+                if(model != null)
+                {
+                    var record = _registration.CreateUser(model);
+                    if(record != null)
+                    {
+                        return Ok(record);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                    
+                }
+                else
+                {
+                    return NotFound();
+                }
+  
             }
             catch(Exception e)
             {

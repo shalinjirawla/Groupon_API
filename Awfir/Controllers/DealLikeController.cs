@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Interface;
 using BusinessLogic.Models;
 using BusinessLogic.Repository;
+using BusinessLogic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,46 @@ namespace Awfir.Controllers
         {
             try
             {
-                var data = _dealLike.InsertDealLike(dealLike);
-                if(data != null)
+                if(dealLike != null)
                 {
-                    return Ok(data);
+                    var data = _dealLike.InsertDealLike(dealLike);
+                    if (data != null)
+                    {
+                        return Ok(data);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return NotFound();
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult CheckLike(DealLike model)
+        {
+            try
+            {
+                if (model != null)
+                {
+                    var record = _dealLike.CheckLike(model.DealID, model.UserID);
+                    if (record != null)
+                    {
+                        return Ok(record);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 else
                 {
@@ -40,5 +77,7 @@ namespace Awfir.Controllers
                 throw e;
             }
         }
+
+
     }
 }

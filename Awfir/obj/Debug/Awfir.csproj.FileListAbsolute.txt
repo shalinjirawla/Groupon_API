@@ -1,3 +1,4 @@
+D:\Code\Awfir Angular\Awfir\Awfir\obj\Debug\Awfir.csprojResolveAssemblyReference.cache
 D:\Code\Awfir Angular\Awfir\Awfir\obj\Debug\Awfir.csproj.CoreCompileInputs.cache
 D:\Code\Awfir Angular\Awfir\Awfir\bin\ApplicationInsights.config
 D:\Code\Awfir Angular\Awfir\Awfir\bin\Awfir.dll.config
@@ -58,6 +59,5 @@ D:\Code\Awfir Angular\Awfir\Awfir\bin\Microsoft.AI.DependencyCollector.xml
 D:\Code\Awfir Angular\Awfir\Awfir\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Code\Awfir Angular\Awfir\Awfir\bin\Microsoft.AI.WindowsServer.xml
 D:\Code\Awfir Angular\Awfir\Awfir\bin\Microsoft.AI.Web.xml
-D:\Code\Awfir Angular\Awfir\Awfir\obj\Debug\Awfir.csprojResolveAssemblyReference.cache
 D:\Code\Awfir Angular\Awfir\Awfir\obj\Debug\Awfir.dll
 D:\Code\Awfir Angular\Awfir\Awfir\obj\Debug\Awfir.pdb

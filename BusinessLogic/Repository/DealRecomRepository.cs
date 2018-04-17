@@ -15,6 +15,26 @@ namespace BusinessLogic.Repository
         {
             db = context;
         }
+
+        public DealRecom GetByID(Guid id)
+        {
+            try
+            {
+                var record = db.DealRecoms.Where(x => x.DealID == id).FirstOrDefault();
+                if(record != null)
+                {
+                    return record;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        } 
         public string InsertUpdateDealRecom(DealRecom dealRecom)
         {
             try
@@ -26,12 +46,12 @@ namespace BusinessLogic.Repository
                     var data = db.DealRecoms.Where(x => x.DealID == dealRecom.DealID).FirstOrDefault();
                     {
                         var avg = db.DealReviews.Where(x => x.DealID == dealRecom.DealID).Select(x => x.Rating).ToList().Average();
-
+                        
                         if (data != null)
                         {
                             data.AverageRating = Convert.ToDecimal(avg);
                             data.TotalReviews = data.TotalReviews + 1;
-                            data.TotalLikes = data.TotalLikes + 1;
+                            //data.TotalLikes = data.TotalLikes + 1;
                             db.SaveChanges();
                             return ("Ok");
                         }

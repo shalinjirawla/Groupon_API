@@ -23,7 +23,50 @@ namespace BusinessLogic.Repository
         {
             try
             {
-                var deal = db.Deals.OrderByDescending(x => x.Status == true).OrderByDescending(x => x.Discount).Take(3).ToList();
+                var deal = (from d in db.Deals
+                             join DR in db.DealRecoms
+                             on new { ID = d.ID }
+                             equals new { ID = DR.DealID }
+                             where (d.Status == true)
+                             group new { d, DR } by new
+                             {
+                                 d.ID,
+                                 d.Name,
+                                 d.UserID,
+                                 d.URL,
+                                 d.LocationID,
+                                 d.Details,
+                                 d.Image,
+                                 d.FinePrint,
+                                 d.CategoryID,
+                                 d.TotalQty,
+                                 d.Price,
+                                 d.Discount,
+                                 d.Status,
+                                 d.CreatedDate,
+                                 DR.AverageRating,
+                                 DR.TotalLikes
+                             } into gr
+                             select new
+                             {
+                                 ID = gr.Key.ID,
+                                 Name = gr.Key.Name,
+                                 UserID = gr.Key.UserID,
+                                 URL = gr.Key.URL,
+                                 LocationID = gr.Key.LocationID,
+                                 Details = gr.Key.Details,
+                                 FinePrint = gr.Key.FinePrint,
+                                 Image = gr.Key.Image,
+                                 CategoryID = gr.Key.CategoryID,
+                                 TotalQty = gr.Key.TotalQty,
+                                 Price = gr.Key.Price,
+                                 Discount = gr.Key.Discount,
+                                 Status = gr.Key.Status,
+                                 CreatedDate = gr.Key.CreatedDate,
+                                 TotalLikes = gr.Key.TotalLikes,
+                                 AverageRating = gr.Key.AverageRating
+                             }).OrderByDescending(x => x.Discount).Take(3).ToList();
+
                 List<AllDeal> dealdata = new List<AllDeal>();
 
                 foreach (var item in deal)
@@ -42,6 +85,9 @@ namespace BusinessLogic.Repository
                     dealList.Discount = item.Discount;
                     dealList.Status = item.Status;
                     dealList.CreatedDate = item.CreatedDate;
+                    dealList.AverageRating = item.AverageRating;
+                    var query = db.DealReviews.Where(x => x.DealID == item.ID).ToList().Count();
+                    dealList.RateCount = query;
 
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
                     {
@@ -81,6 +127,9 @@ namespace BusinessLogic.Repository
                            join p in db.PaymentDetails
                            on new { ID = d.ID }
                            equals new { ID = p.DealID }
+                           join r in db.DealRecoms 
+                           on new { ID = d.ID }
+                           equals new { ID = r.DealID }
                            where (d.Status == true)
                            group new { d, p } by new
                            {
@@ -98,7 +147,10 @@ namespace BusinessLogic.Repository
                                d.Price,
                                d.Discount,
                                d.Status,
-                               d.CreatedDate
+                               d.CreatedDate,
+                               r.TotalLikes,
+                               r.AverageRating,
+                               
 
                            } into gr
                            select new
@@ -117,6 +169,8 @@ namespace BusinessLogic.Repository
                                Discount = gr.Key.Discount,
                                Status = gr.Key.Status,
                                CreatedDate = gr.Key.CreatedDate,
+                               TotalLikes = gr.Key.TotalLikes,
+                               AverageRating = gr.Key.AverageRating,
                                Count = gr.Count()
                            }).OrderByDescending(x=>x.Count).Take(3).ToList();
 
@@ -138,6 +192,9 @@ namespace BusinessLogic.Repository
                     a.Discount = item.Discount;
                     a.Status = item.Status;
                     a.CreatedDate = item.CreatedDate;
+                    a.AverageRating = item.AverageRating;
+                    var query = db.DealReviews.Where(x => x.DealID == item.ID).ToList().Count();
+                    a.RateCount = query;
 
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
                     {
@@ -178,7 +235,7 @@ namespace BusinessLogic.Repository
                             join DR in db.DealRecoms
                             on new { ID = d.ID }
                             equals new { ID = DR.DealID}
-                            where(d.Status == true)
+                            where (d.Status == true)
                             group new { d, DR } by new
                             {
                                 DR.DealID,
@@ -195,8 +252,10 @@ namespace BusinessLogic.Repository
                                 d.Price,
                                 d.Discount,
                                 d.Status,
-                                d.CreatedDate
-                               
+                                d.CreatedDate,
+                                DR.TotalLikes,
+                                DR.AverageRating
+
                             }
                              into gr
                             select new
@@ -215,6 +274,8 @@ namespace BusinessLogic.Repository
                                 Discount = gr.Key.Discount,
                                 Status = gr.Key.Status,
                                 CreatedDate = gr.Key.CreatedDate,
+                                TotalLikes = gr.Key.TotalLikes,
+                                AverageRating = gr.Key.AverageRating,
                                 Total = gr.Sum(x=>x.DR.AverageRating + x.DR.TotalLikes + x.DR.TotalReviews)
                               
                             }).OrderByDescending(x => x.Total).Take(3).ToList();
@@ -237,6 +298,9 @@ namespace BusinessLogic.Repository
                     a.Discount = item.Discount;
                     a.Status = item.Status;
                     a.CreatedDate = item.CreatedDate;
+                    a.AverageRating = item.AverageRating;
+                    var query = db.DealReviews.Where(x => x.DealID == item.ID).ToList().Count();
+                    a.RateCount = query;
 
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
                     {
@@ -274,7 +338,50 @@ namespace BusinessLogic.Repository
         {
             try
             {
-                var deal = db.Deals.OrderByDescending(x => x.Status == true).OrderByDescending(x => x.ID).Take(3).ToList();
+                var deal =  (from d in db.Deals
+                             join DR in db.DealRecoms
+                             on new { ID = d.ID }
+                             equals new { ID = DR.DealID }
+                             where (d.Status == true)
+                             group new { d, DR } by new
+                             {
+                                 d.ID,
+                                 d.Name,
+                                 d.UserID,
+                                 d.URL,
+                                 d.LocationID,
+                                 d.Details,
+                                 d.Image,
+                                 d.FinePrint,
+                                 d.CategoryID,
+                                 d.TotalQty,
+                                 d.Price,
+                                 d.Discount,
+                                 d.Status,
+                                 d.CreatedDate,
+                                 DR.AverageRating,
+                                 DR.TotalLikes
+                             } into gr
+                             select new
+                             {
+                                 ID = gr.Key.ID,
+                                 Name = gr.Key.Name,
+                                 UserID = gr.Key.UserID,
+                                 URL = gr.Key.URL,
+                                 LocationID = gr.Key.LocationID,
+                                 Details = gr.Key.Details,
+                                 FinePrint = gr.Key.FinePrint,
+                                 Image = gr.Key.Image,
+                                 CategoryID = gr.Key.CategoryID,
+                                 TotalQty = gr.Key.TotalQty,
+                                 Price = gr.Key.Price,
+                                 Discount = gr.Key.Discount,
+                                 Status = gr.Key.Status,
+                                 CreatedDate = gr.Key.CreatedDate,
+                                 TotalLikes = gr.Key.TotalLikes,
+                                 AverageRating = gr.Key.AverageRating
+                             }).OrderByDescending(x => x.ID).Take(3).ToList();
+
                 List<AllDeal> dealdata = new List<AllDeal>();
 
                 foreach (var item in deal)
@@ -293,6 +400,9 @@ namespace BusinessLogic.Repository
                     dealList.Discount = item.Discount;
                     dealList.Status = item.Status;
                     dealList.CreatedDate = item.CreatedDate;
+                    dealList.AverageRating = item.AverageRating;
+                    var query = db.DealReviews.Where(x => x.DealID == item.ID).ToList().Count();
+                    dealList.RateCount = query;
 
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
                     {
@@ -334,9 +444,7 @@ namespace BusinessLogic.Repository
                 AllDeal record = new AllDeal();
                 if (data != null)
                 {
-                    //var loco = "";
                     var a = db.Locations.Where(x => x.ID == data.LocationID).Select(x => x.LocationName).FirstOrDefault();
-                    //loco = a;
                     var cat = db.Categorys.Where(x => x.ID == data.CategoryID).Select(x => x.CategoryName).FirstOrDefault();
                     var image = "";
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
@@ -365,6 +473,7 @@ namespace BusinessLogic.Repository
                     record.Discount = data.Discount;
                     record.Status = data.Status;
                     record.CreatedDate = data.CreatedDate;
+                    record.DealSold = data.DealSold;
                     return record;
                 }
                 else

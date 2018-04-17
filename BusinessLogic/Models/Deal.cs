@@ -34,6 +34,7 @@ namespace BusinessLogic.Models
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
         public Boolean Status { get; set; }
+        public Nullable<Int32> DealSold { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

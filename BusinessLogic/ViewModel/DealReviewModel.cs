@@ -15,7 +15,8 @@ namespace BusinessLogic.ViewModel
         public Guid UserID { get; set; }
         public DateTime ReviewDate { get; set; }
         public string FullName { get; set; }
-        
         public string Image { get; set; }
+        public int TotalRating { get; set; }
+        
     }
 }

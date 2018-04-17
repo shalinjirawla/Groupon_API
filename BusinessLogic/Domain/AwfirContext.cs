@@ -30,6 +30,7 @@ namespace BusinessLogic.Models
         public DbSet<Status> Status { get; set; }
         public DbSet<Category> Categorys { get; set; }
         public DbSet<DealRecom> DealRecoms { get; set; }
+        public DbSet<Offers> Offers { get; set; }
         
 
 

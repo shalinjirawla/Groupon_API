@@ -22,8 +22,8 @@ namespace BusinessLogic.Repository
         {
             try
             {
-                var count = db.DealReviews.Where(x => x.DealID == id).Count();   
-                 var data = (from dr in db.DealReviews
+                var query = db.DealReviews.Where(x => x.DealID == id).ToList().Count(); 
+                var data = (from dr in db.DealReviews
                             join u in db.Users
                             on new { ID = dr.UserID }
                             equals new { ID = u.ID }
@@ -38,7 +38,8 @@ namespace BusinessLogic.Repository
                                 dr.UserID,
                                 u.FirstName,
                                 u.LastName,
-                                u.Image
+                                u.Image,
+                                
 
                             } into gr
                             select new
@@ -51,7 +52,7 @@ namespace BusinessLogic.Repository
                                 ReviewDate = gr.Key.ReviewDate,
                                 Image = gr.Key.Image,
                                 FullName = gr.Key.FirstName + " " + gr.Key.LastName,
-
+                                TotalRating = query
                             }).ToList();
             
 
@@ -67,6 +68,8 @@ namespace BusinessLogic.Repository
                     model.ReviewText = item.ReviewText;
                     model.UserID = item.UserID;
                     model.ReviewDate = item.ReviewDate;
+                    model.TotalRating = item.TotalRating;
+                    
                     foreach (string file in Directory.EnumerateFiles(System.Web.HttpContext.Current.Server.MapPath("/App_Data/Image/"), "*", SearchOption.AllDirectories))
                     {
                         if (file.Split('\\')[7] == item.Image.Split('\\')[2])

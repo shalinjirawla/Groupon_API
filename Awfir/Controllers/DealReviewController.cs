@@ -26,15 +26,23 @@ namespace Awfir.Controllers
         {
             try
             {
-                var data = _dealReview.GetAllReviews(id);
-                if(data != null)
+                if(id != null)
                 {
-                    return Ok(data);
+                    var data = _dealReview.GetAllReviews(id);
+                    if (data != null)
+                    {
+                        return Ok(data);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 else
                 {
                     return NotFound();
                 }
+                
             }
             catch(Exception e)
             {
@@ -48,10 +56,17 @@ namespace Awfir.Controllers
         {
             try
             {
-                var data = _dealReview.InsertDealReview(dealReview);
-                if(data != null)
+                if(dealReview != null)
                 {
-                    return Ok(data);
+                    var data = _dealReview.InsertDealReview(dealReview);
+                    if (data != null)
+                    {
+                        return Ok(data);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 else
                 {
