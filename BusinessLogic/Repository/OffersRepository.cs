@@ -72,7 +72,7 @@ namespace BusinessLogic.Repository
                                   }).FirstOrDefault();
 
                     OfferView result = new OfferView();
-                    result.ID = record.ID;
+                    result.OfferID = record.ID;
                     result.DealID = record.DealID;
                     result.Text = record.Text;
                     result.Price = record.Price;
@@ -96,7 +96,7 @@ namespace BusinessLogic.Repository
                 {
                     var record = db.Deals.Where(x => x.ID == offerIDDealID.DealID).FirstOrDefault();
                     OfferView offerView = new OfferView();
-                    offerView.ID = record.ID;
+                    offerView.DealID = record.ID;
                     offerView.Name = record.Name;
                     offerView.Price = record.Price;
                     offerView.Discount = record.Discount;

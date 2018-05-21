@@ -60,7 +60,7 @@ namespace BusinessLogic.Repository
                     user.DOB = model.DOB;
                     user.Category = model.Category;
                     user.Image = model.Image;
-                    user.RegisteredDate = model.RegisteredDate;
+                    user.RegisteredDate = DateTime.Now;
                     db.Users.Add(user);
                     db.SaveChanges();
                     return true;

@@ -31,7 +31,9 @@ namespace BusinessLogic.Models
         public DbSet<Category> Categorys { get; set; }
         public DbSet<DealRecom> DealRecoms { get; set; }
         public DbSet<Offers> Offers { get; set; }
-        
+        public DbSet<FirstCouponCode> FirstCouponCodes { get; set; }
+
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -41,14 +43,14 @@ namespace BusinessLogic.Models
                  .HasRequired(c => c.Location)
                  .WithMany()
                  .WillCascadeOnDelete(false);
-            modelBuilder.Entity<DealCode>()
-               .HasRequired(c => c.Location)
-               .WithMany()
-               .WillCascadeOnDelete(false);
             modelBuilder.Entity<Deal>()
                .HasRequired(c => c.User)
                .WithMany()
                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<FirstCouponCode>()
+                .HasRequired(c => c.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
             
         }
 

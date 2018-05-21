@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BusinessLogic.Models
+namespace BusinessLogic.ViewModel
 {
-    [Table("DealCode")]
-    public class DealCode
+    public class DealCodeModel
     {
-        public DealCode()
-        {
-            this.Status = true;
-        }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
         public Nullable<Guid> DealID { get; set; }
         public Nullable<Guid> UserID { get; set; }
+        public Nullable<Guid> OfferID { get; set; }
         public string Code { get; set; }
         public Nullable<Guid> LocationID { get; set; }
         public decimal Discount { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
+        public string Message { get; set; }
         public DateTime CreatedDate { get; set; }
         public Nullable<DateTime> Validitydate { get; set; }
-        
     }
 }

@@ -28,3 +28,11 @@ D:\Code\Awfir Angular\Awfir\BusinessLogic\bin\Debug\System.Web.Http.xml
 D:\Code\Awfir Angular\Awfir\BusinessLogic\bin\Debug\System.Web.Http.Cors.xml
 D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.dll
 D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.pdb
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Ten.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Eleven.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Twelve.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Thirteen.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Fourteen.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.Migrations.Fifteen.resources
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+D:\Code\Awfir Angular\Awfir\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete

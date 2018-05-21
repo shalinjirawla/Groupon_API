@@ -10,19 +10,22 @@ namespace BusinessLogic.Models
     [Table("Cart")]
     public class Cart
     {
+        public Cart()
+        {
+            this.Status = true;
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
-        [ForeignKey("Deal")]
-        public Guid DealID { get; set; }
-        public Deal Deal { get; set; }
+        public Nullable<Guid> DealID { get; set; }
+        public Nullable<Guid> OfferID { get; set; }
         public int Qty { get; set; }
         public decimal Total { get; set; }
         public string CouponCode { get; set; }
-        public int PaymentType { get; set; }
+        public Nullable<int> PaymentType { get; set; }
         [ForeignKey("User")]
         public Guid UserID { get; set; }
         public User User { get; set; }
-        public int Status { get; set; }
+        public bool Status { get; set; }
      }
 }

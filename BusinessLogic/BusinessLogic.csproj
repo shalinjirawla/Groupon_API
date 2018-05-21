@@ -65,8 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ICart.cs" />
+    <Compile Include="Interface\IDealCode.cs" />
     <Compile Include="Interface\IOffers.cs" />
     <Compile Include="Interface\IPaymentDetail.cs" />
+    <Compile Include="Interface\ISendGift.cs" />
     <Compile Include="Migrations\201804060623521_Four.cs" />
     <Compile Include="Migrations\201804060623521_Four.Designer.cs">
       <DependentUpon>201804060623521_Four.cs</DependentUpon>
@@ -95,9 +98,37 @@
     <Compile Include="Migrations\201804161206422_Nine.Designer.cs">
       <DependentUpon>201804161206422_Nine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805020418038_Ten.cs" />
+    <Compile Include="Migrations\201805020418038_Ten.Designer.cs">
+      <DependentUpon>201805020418038_Ten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805020450348_Eleven.cs" />
+    <Compile Include="Migrations\201805020450348_Eleven.Designer.cs">
+      <DependentUpon>201805020450348_Eleven.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805020625144_Twelve.cs" />
+    <Compile Include="Migrations\201805020625144_Twelve.Designer.cs">
+      <DependentUpon>201805020625144_Twelve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805021040554_Thirteen.cs" />
+    <Compile Include="Migrations\201805021040554_Thirteen.Designer.cs">
+      <DependentUpon>201805021040554_Thirteen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805021157132_Fourteen.cs" />
+    <Compile Include="Migrations\201805021157132_Fourteen.Designer.cs">
+      <DependentUpon>201805021157132_Fourteen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805021202440_Fifteen.cs" />
+    <Compile Include="Migrations\201805021202440_Fifteen.Designer.cs">
+      <DependentUpon>201805021202440_Fifteen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FirstCouponCode.cs" />
     <Compile Include="Models\Offers.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\DealCodeRepository.cs" />
     <Compile Include="Repository\OffersRepository.cs" />
     <Compile Include="Repository\PaymentDetailRepository.cs" />
+    <Compile Include="Repository\SendGiftRepository.cs" />
     <Compile Include="ViewModel\AllDeal.cs" />
     <Compile Include="Domain\AwfirContext.cs" />
     <Compile Include="Interface\ICategory.cs" />
@@ -144,10 +175,13 @@
     <Compile Include="Repository\LocationRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\RegistrationRepository.cs" />
+    <Compile Include="ViewModel\CartModel.cs" />
+    <Compile Include="ViewModel\DealCodeModel.cs" />
     <Compile Include="ViewModel\DealReviewModel.cs" />
     <Compile Include="ViewModel\OfferIDDealID.cs" />
     <Compile Include="ViewModel\OfferView.cs" />
     <Compile Include="ViewModel\PaymentDetailCount.cs" />
+    <Compile Include="ViewModel\UpdateCartModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803270620054_First.resx">
@@ -179,6 +213,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804161206422_Nine.resx">
       <DependentUpon>201804161206422_Nine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805020418038_Ten.resx">
+      <DependentUpon>201805020418038_Ten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805020450348_Eleven.resx">
+      <DependentUpon>201805020450348_Eleven.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805020625144_Twelve.resx">
+      <DependentUpon>201805020625144_Twelve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021040554_Thirteen.resx">
+      <DependentUpon>201805021040554_Thirteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021157132_Fourteen.resx">
+      <DependentUpon>201805021157132_Fourteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805021202440_Fifteen.resx">
+      <DependentUpon>201805021202440_Fifteen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

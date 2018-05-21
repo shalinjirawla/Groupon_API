@@ -10,7 +10,7 @@ namespace BusinessLogic.ViewModel
 {
     public class OfferView
     {
-        public Guid ID { get; set; }
+        public Guid OfferID { get; set; }
         public Guid DealID { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
